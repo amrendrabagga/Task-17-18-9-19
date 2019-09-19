@@ -3,16 +3,20 @@ package com.wp.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import com.wp.dao.DAO;
 import com.wp.dao.EmpDAO;
 import com.wp.entity.Emp;
 
-@Component
+@Service
 public class EmpCRUD {
 
 	@Autowired
-	EmpDAO empDAO;
+//	@Qualifier("myDAO") //it we have only bean(component of type dao then no need)
+	DAO empDAO;
 	
 	public void saveEmp(Emp emp) {
 		empDAO.save(emp);

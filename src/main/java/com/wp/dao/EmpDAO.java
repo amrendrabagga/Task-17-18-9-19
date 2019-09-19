@@ -9,12 +9,15 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.context.ServletContextAware;
 
 import com.wp.entity.Emp;
 import com.wp.util.Util;
 
-@Component
+//@Repository("myDAO") // it multiple dao implementation are present then we define name
+//which we use using @Qualifier
+@Repository
 public class EmpDAO implements DAO,ServletContextAware{
 
 //	@Autowired ->this will null pointer exception as it get executed in setter property phase
